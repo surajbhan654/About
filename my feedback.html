@@ -1,0 +1,141 @@
+
+
+
+
+
+
+
+<html>
+    <head>
+        <title>Feedback</title>
+    </head>
+    <body style="background-color: silver; margin:5px;">
+  <hr> <center> 
+           <a href="212120002_wevdev.html" style="float:left; margin:5px;"><img src="https://cdn-icons-png.flaticon.com/512/2/2144.png"
+                      style="height:20px; width:20x"></a>
+            <h2  style="margin-top:1px; background:grey; padding:10px; ">MY FEEDBACK </h2>
+        </center> <hr>
+        <div class="feedback">
+            
+            <div class="feed_content">
+                <header><center><br><h2>FEEDBACK</h2></header>
+                    <table  style="padding:10px; font-size: 20px; margin:20px; height:83%; border-right:1px solid black">
+                            <tr ><td>Mr/Mrs*</td><td>
+                            <select style="height: 30px;width: 220px;  border-radius: 8px;" id="res">
+                                <option value="">--SELECT OPTION--</option>
+                                <option value="Mr.">Mr</option>
+                                <option value="Mrs.">Mrs</option>
+                            </select> <br> <br>
+                        </td></tr>
+                         <tr><td>First Name*:</td><td><input type="text" id="first_name"  maxlength="30"  placeholder="not more than 30 char" style="height: 30px;width: 220px;  border-radius: 8px; "></td></tr> 
+                         <tr><td>Last Name:</td><td><input type="text" id="last_name"  maxlength="30"  placeholder="optional" style="height: 30px;width: 220px; border-radius: 8px;"></td></tr>    
+                         <tr><td>Comment*</td><td><textarea id="comment" placeholder="enter comment*" style="height: 165px; width: 300px; margin: 0px; border-radius: 8px;"></textarea></td></tr>
+                         <tr><td></td><td><button style="height: 40px; width: 120px; margin: 0px;background-color: teal;" onclick="sub_data()"><b>Submit</b></button></td>
+                     <td><button style="height: 40px; width: 120px; margin-top: 0px;background-color: teal;" onclick="reset()"><b>Reset</b></button></td> </tr> 
+                    </table>     
+
+            </div>
+            <div class="show_comment">
+                <header><center><br><h2>COMMENT</h2></header>
+                    <table style="width: 90%;margin:20px; border-collapse: collapse;" border="1px" id="add_comment">
+                        <thead style="background-color:no">
+                            <th style="width: 40px;">Sr.</th>
+                             <th>Name</th>
+                            <th>Comment</th>
+                        </thead>
+                        <tbody style="background-color:teal;">
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+<br><br><hr> <br><br>
+    </body>
+</html>
+<script>
+    var id = 1;
+    function sub_data()
+    {
+        var comment = document.getElementById('comment').value;
+        var res = document.getElementById("res").value;
+        var first_name = document.getElementById("first_name").value;
+        var last_name =document.getElementById("last_name").value;
+        if(res == "")
+        {
+            alert(" choose Mr/Mrs");
+        }
+     else if(first_name == "")
+                alert(" fill the first name");
+      else if(comment == "")
+                alert(" fill the comment");
+        else
+        {
+            var table = document.getElementById("add_comment");
+            var row = table.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = id;
+            cell2.innerHTML = res+"&nbsp;"+first_name+"&nbsp;"+last_name;
+            cell3.innerHTML = comment;
+            id = id+1;
+            alert("Record saved");
+            document.getElementById('comment').value ="";
+            document.getElementById("res").value="0";
+            document.getElementById("first_name").value = "";
+            document.getElementById("last_name").value="";
+        }
+    }
+ function reset(){
+
+document.getElementById('comment').value ="";
+            document.getElementById("res").value="0";
+            document.getElementById("first_name").value = "";
+            document.getElementById("last_name").value="";
+
+}
+</script>
+<style>
+*{ margin:0px; padding 0px;}
+
+    .show_comment
+    {
+        float:right;
+        width: 50%;
+        height: 100%;
+        
+    }
+    .feed_content 
+    {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .feed_content header{
+        width: 99.5%;
+        height: 12%;
+        margin-left:1px ;
+        
+        border-bottom: 2px solid black
+    }
+    .show_comment header{
+        width: 99.5%;
+        height: 12%;
+        margin-left:1px ;
+         border-bottom: 2px solid black;
+         border-left: 2px solid black;
+   
+    }
+    .feedback
+    {
+        padding: 1px;
+        height: 90%;
+        width: 90%;
+        margin-left: 70px;
+        margin-top: 30px;
+        background-color:skyblue;
+        border:1px solid black;
+        box-shadow: 10px 10px 10px gray;
+    }
+    
+</style>
